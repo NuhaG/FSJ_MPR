@@ -1,157 +1,110 @@
-:root {
-  --primary-color: rgb(13, 107, 112); /* primary color main branding color */
-  --secondary-color: rgb( 220, 141, 119 ); /* secondary color for accents : buttons*/
-  --accent-color: rgb(
-    83,
-    225,
-    197
-  ); /* accent color for highlights : special sections */
-  --background-color: rgb(249, 243, 236); /* background color */
-  --surface-color: rgb(255, 255, 255); /* surface color for cards and panels */
-  --text-color: rgb(60, 60, 60); /* main text color */
-  --text-secondary-color: rgb(
-    100,
-    100,
-    100
-  ); /* secondary text color for less emphasis */
-  --hover-color: rgb(184, 111, 97); /* hover color for links and buttons */
+* {
+  padding: 0px;
+  margin: 0px;
 }
 
-*{
-    padding: 0px;
-    margin: 0px;
-
+header {
+  background-color: var(--background-color);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
-header{
-    background-image: url("medbgimg.jpg");
-    background-repeat: no-repeat;
-
-    background-size: cover;
-    background-position: center;
-
-
+.heading {
+  color: var(--primary-color);
+  text-align: center;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 5vw, 2.5rem); /*  min 1.5rem (24px), grows up to 2.5rem (40px) on large screens */
+  /* padding: 75px; */
+  height: auto;
+  text-decoration: none;
+  margin: 20px;
+}
+.captiontext {
+  text-align: center;
+  color: var(--text-color);
+  font-size: medium;
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+  /* font-size: 16px; */
+  margin: 20px auto 40px auto;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+  padding-bottom: 110px;
+}
+.card {
+  background-color: var(--primary-color);
+  color: white;
+  width: 300px;
+  height: 300px;
+  margin: 10px;
+  border-radius: 15px;
+  margin-bottom: 40px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: rgba(25, 1, 47, 0.4) 0px 4px 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.cardimage {
+  height: 170px;
+  background-size: cover;
+  margin-bottom: 15px;
+  border-radius: 15px 15px 0 0;
+}
+.card:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+.card1 {
+  background-image: url("public/img1.jpeg");
 }
 
-.heading{
-    color: rgb(13, 107, 112);
-    text-align: center;
-    font-size: 30px;
-    padding: 75px;
-    font-family:'Times New Roman', Times, serif;
-    height: 100px;
-    text-decoration:none;
-    padding-bottom: 20px;
-
+.card2 {
+  background-image: url("public/img2.jpg");
 }
- .heading:hover{
-    color:  rgb( 220, 141, 119 );
-    transition: 0.6s ease;
-    text-decoration: wavy;
-    cursor: pointer;
-
+.card3 {
+  background-image: url("public/img3.jpg");
 }
-.captiontext{
-    text-align: center;
-    color:rgb(13, 107, 112);
-    font-size: 16px;
-    padding-bottom: 40px;
-
+.card4 {
+  background-image: url("public/img4.jpg");
 }
-.captiontext:hover{
-    color:  rgb( 220, 141, 119 );
-    transition: 0.6s ease;
-    text-decoration: wavy;
-    cursor: pointer;
+.card5 {
+  background-image: url("public/img5.jpg");
+}
+.card6 {
+  background-image: url("public/img6.jpg");
 }
 
-.container{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap:40px;
-    align-items: center;
-
+.bottom {
+  position: fixed;
+  width: 100%;
+  height: 100px;
+  background-color: var(--primary-color);
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-
-.card{
-    background-color:rgb(13, 107, 112);
-    color: white;
-    
-    width:300px;
-    height: 300px;
-    margin: 10px;
-    border-radius: 15px;
-    margin-bottom: 40px;
-    justify-content:center;
-    align-items: center;
-    text-align: center;
-    
-
-}.cardimage{
-    
-
-    height: 170px ;
-    background-size: cover;
-    margin-bottom: 15px;
-    border-radius: 15px 15px 0 0;
-
+.icons {
+  margin-top: 14px;
 }
-.card:hover{
-    background-color:beige;
-    color:  rgb( 220, 141, 119 );
-    cursor: pointer;
-    transform: scale(1.06) ;
-    transition: all 0.5s ease;
-}
-.card1{
-    background-image: url('img1.jpeg');
-}
-
-.card2{
-    background-image: url('img2.jpg');
-}
-.card3{
-    background-image: url('img3.jpg');
-}
-.card4{
-    background-image: url('img4.jpg');
-}
-.card5{
-    background-image: url('img5.jpg');
-}
-.card6{
-    background-image: url('img6.jpg');
-}
-
-.bottom{
-    position: sticky;
-    height: 100px;
-    background-color:rgb(13, 107, 112); 
-    bottom: 0;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    
-
-}
-.icons{
-    margin-top: 14px;
-    
-}
-#myprogressbar{
-    width:80vw;
-    text-align: center;
-    color: rgb(212, 56, 142);
-
+#myprogressbar {
+  width: 80vw;
+  text-align: center;
+  color: rgb(212, 56, 142);
 }
 i {
-  font-size: 35px; 
+  font-size: 35px;
   cursor: pointer;
-  color:rgb( 220, 141, 119 );
+  color: var(--secondary-color);
 }
-i:hover{
-    transform: scale(1.06);
-    color: rgb(226, 83, 44);
+i:hover {
+  transform: scale(1.06);
+  color: var(--hover-color);
 }
