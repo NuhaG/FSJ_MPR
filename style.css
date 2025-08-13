@@ -317,7 +317,7 @@ body {
     border-radius: 10px;
     background-color: var(--surface-color);
     cursor: pointer;
-    margin left: 0px;
+    margin-top: 0px;
     
     height: 175px;
     width: 160px;
