@@ -1,0 +1,111 @@
+.sidebar {
+  background-color: var(--primary-color);
+  color: var(--surface-color);
+  width: fit-content;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0px;
+  justify-content: space-between;
+  align-items: center;
+}
+.user-logo i {
+  margin-right: 7px;
+}
+.logout {
+  border: 2px solid var(--surface-color);
+  padding: 6px 10px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.logout i {
+  margin-left: 5px;
+}
+.logout:hover {
+  transform: scale(1.05);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  background-color: var(--hover-color);
+}
+.dash-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+.dash-links li {
+  margin: 5px 0;
+  width: 100%;
+}
+.dash-links li i {
+  margin-right: 7px;
+}
+.dash-links a {
+  color: var(--surface-color);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 6px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+.dash-links li:hover a {
+  background-color: var(--hover-color);
+  transform: translateY(-4px);
+  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.15);
+}
+.toggle-sidebar {
+  display: none;
+}
+@media (max-width: 425px) {
+  .sidebar {
+    width: 100%;
+    height: fit-content;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    position: relative;
+  }
+  .sidebar ul {
+    display: none;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+  }
+  .sidebar ul li {
+    width: 100%;
+    margin: 0;
+  }
+  .sidebar ul li a {
+    padding: 12px 20px;
+  }
+  #desktop-logout {
+    display: none;
+  }
+  .toggle-sidebar {
+    display: block;
+    border: none;
+    background: none;
+    color: var(--surface-color);
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+  .dash-links.active {
+    display: flex;
+  }
+}

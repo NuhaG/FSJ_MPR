@@ -4,18 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
+    <script
+      src="https://kit.fontawesome.com/ff6727bd09.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="dashboard.css" />
   </head>
   <body>
-    <h1
-      style="
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      "
-    >
-      Dashboard
-    </h1>
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <div class="user-logo"><i class="fa-solid fa-user"></i>Welcome</div>
+      <ul class="dash-links" id="dash-links">
+        <li>
+          <a href="/dashboard.html"><i class="fa-solid fa-home"></i>Home</a>
+        </li>
+        <li>
+          <a href="/dashboard.html"><i class="fa-solid fa-headphones"></i>Meditation</a>
+        </li>
+        <li>
+          <a href="/dashboard.html"><i class="fa-solid fa-pills"></i>Medication</a>
+        </li>
+        <li>
+          <a href="/dashboard.html"><i class="fa-solid fa-utensils"></i>Nutrition</a>
+        </li>
+        <li>
+          <a href="/dashboard.html"><i class="fa-solid fa-dumbbell"></i>Exercise</a>
+        </li>
+      </ul>
+    <div class="logout" id="desktop-logout">Logout<i class="fa-solid fa-arrow-left"></i></div>
+    <button class="toggle-sidebar" id="toggle-sidebar"><i class="fa-solid fa-bars"></i></button>
+    </nav>
+    <script src="sidebar.js"></script>
   </body>
 </html>

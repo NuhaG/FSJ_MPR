@@ -90,6 +90,7 @@ body {
 
 @media (max-width: 466px) {
   .nav-links {
+    z-index: 100;
     position: absolute;
     top: 48px;
     right: 2px;
