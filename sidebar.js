@@ -8,7 +8,24 @@ mobileLogout.innerHTML = `<i class="fa-solid fa-arrow-left"></i>Logout`;
 toggleBtn.addEventListener("click", () => {
   dashLinks.classList.toggle("active");
 
-  if(dashLinks.classList.contains('active') && !dashLinks.querySelector('.logout')) {
-    dashLinks.appendChild(mobileLogout);
+  if (window.innerWidth <= 425) {
+    if (
+      dashLinks.classList.contains("active") &&
+      !dashLinks.querySelector(".logout")
+    ) {
+      dashLinks.appendChild(mobileLogout);
+    }
+  } else {
+    if (dashLinks.contains(mobileLogout)) {
+      dashLinks.removeChild(mobileLogout);
+    }
   }
 });
+
+window.addEventListener('resize', ()=> {
+  if(window.innerWidth > 425) {
+    if(dashLinks.contains(mobileLogout)) {
+      dashLinks.removeChild(mobileLogout);
+    }
+  }
+})

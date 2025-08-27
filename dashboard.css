@@ -1,19 +1,32 @@
+/* Sidebar */
 .sidebar {
-  background-color: var(--primary-color);
+  background: linear-gradient(135deg, var(--primary-color), var(--text-color));
   color: var(--surface-color);
-  width: fit-content;
+  width: 220px;
   height: 100vh;
   display: flex;
   flex-direction: column;
   padding: 20px 0px;
   justify-content: space-between;
   align-items: center;
+  flex-shrink: 0;
+  position: fixed;
 }
-.user-logo i {
-  margin-right: 7px;
+.user-logo {
+  text-align: center;
+  font-weight: bold;
+  font-size: larger;
+  background-color: var(--accent-color);
+  padding: 7px;
+  width: 100%;
+  i {
+    margin-right: 7px;
+  }
 }
 .logout {
-  border: 2px solid var(--surface-color);
+  border: 1px solid var(--surface-color);
+  background-color: var(--accent-color);
+  font-weight: bold;
   padding: 6px 10px;
   border-radius: 6px;
   display: flex;
@@ -28,7 +41,7 @@
 .logout:hover {
   transform: scale(1.05);
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
-  background-color: var(--hover-color);
+  background-color: var(--secondary-color);
 }
 .dash-links {
   list-style: none;
@@ -52,6 +65,7 @@
   text-decoration: none;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   padding: 10px 14px;
   border-radius: 6px;
   width: 100%;
@@ -65,7 +79,72 @@
 .toggle-sidebar {
   display: none;
 }
+/* main content */
+.layout {
+  display: flex;
+}
+.dashboard {
+  background-color: var(--background-color);
+  flex: 1;
+  margin-left: 220px;
+  padding: 20px;
+  min-height: 100vh;
+}
+.profile {
+  background-color: var(--surface-color);
+  box-shadow: 0 6px 15px rgba(13, 107, 112, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 8px;
+}
+.profile img {
+  width: 40px;
+}
+.profile span h3 {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+.profile span p {
+  color: var(--text-color);
+  font-weight: light;
+}
+/* Section 1 */
+.sect-1 {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+/* Banner */
+.banner {
+  background-color: var(--surface-color);
+  flex: 1;
+  min-height: 180px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+/* Habit Card */
+.habit {
+  background-color: var(--surface-color);
+  min-height: 180;
+  flex: 2;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
 @media (max-width: 425px) {
+  .layout {
+    display: flex;
+    flex-direction: column;
+  }
+  .dashboard {
+    flex: 1;
+    margin-left: 0px;
+    padding: 0px;
+    min-height: 100vh;
+  }
   .sidebar {
     width: 100%;
     height: fit-content;
@@ -93,6 +172,10 @@
   }
   .sidebar ul li a {
     padding: 12px 20px;
+  }
+  .user-logo {
+    background-color: transparent;
+    text-align: left;
   }
   #desktop-logout {
     display: none;

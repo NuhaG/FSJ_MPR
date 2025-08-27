@@ -12,29 +12,61 @@
     <link rel="stylesheet" href="dashboard.css" />
   </head>
   <body>
-    <!-- Sidebar -->
-    <nav class="sidebar">
-      <div class="user-logo"><i class="fa-solid fa-user"></i>Welcome</div>
-      <ul class="dash-links" id="dash-links">
-        <li>
-          <a href="/dashboard.html"><i class="fa-solid fa-home"></i>Home</a>
-        </li>
-        <li>
-          <a href="/dashboard.html"><i class="fa-solid fa-headphones"></i>Meditation</a>
-        </li>
-        <li>
-          <a href="/dashboard.html"><i class="fa-solid fa-pills"></i>Medication</a>
-        </li>
-        <li>
-          <a href="/dashboard.html"><i class="fa-solid fa-utensils"></i>Nutrition</a>
-        </li>
-        <li>
-          <a href="/dashboard.html"><i class="fa-solid fa-dumbbell"></i>Exercise</a>
-        </li>
-      </ul>
-    <div class="logout" id="desktop-logout">Logout<i class="fa-solid fa-arrow-left"></i></div>
-    <button class="toggle-sidebar" id="toggle-sidebar"><i class="fa-solid fa-bars"></i></button>
-    </nav>
+    <div class="layout">
+      <!-- Sidebar -->
+      <nav class="sidebar">
+        <div class="user-logo">
+          <i class="fa-solid fa-stethoscope"></i>HealthCare
+        </div>
+        <ul class="dash-links" id="dash-links">
+          <li>
+            <a href="/dashboard.html"><i class="fa-solid fa-home"></i>Home</a>
+          </li>
+          <li>
+            <a href="/dashboard.html"
+              ><i class="fa-solid fa-headphones"></i>Meditation</a
+            >
+          </li>
+          <li>
+            <a href="/dashboard.html"
+              ><i class="fa-solid fa-pills"></i>Medication</a
+            >
+          </li>
+          <li>
+            <a href="/dashboard.html"
+              ><i class="fa-solid fa-utensils"></i>Nutrition</a
+            >
+          </li>
+          <li>
+            <a href="/dashboard.html"
+              ><i class="fa-solid fa-dumbbell"></i>Exercise</a
+            >
+          </li>
+        </ul>
+        <div class="logout" id="desktop-logout">
+          Logout<i class="fa-solid fa-arrow-left"></i>
+        </div>
+        <!-- toggle mobile -->
+        <button class="toggle-sidebar" id="toggle-sidebar">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </nav>
+      <!-- Dashboard -->
+      <main class="dashboard">
+        <div class="profile">
+          <img src="public/user.png" alt="User Avatar" />
+          <span>
+            <h3>Welcome Back, Iris</h3>
+            <p>iris@gmail.com</p>
+          </span>
+        </div>
+
+        <div class="sect-1">
+          <div class="banner"></div>
+          <div class="habit"></div>
+        </div>
+      </main>
+    </div>
     <script src="sidebar.js"></script>
   </body>
 </html>
