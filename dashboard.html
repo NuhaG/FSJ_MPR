@@ -62,11 +62,103 @@
         </div>
 
         <div class="sect-1">
-          <div class="banner"></div>
-          <div class="habit"></div>
+          <div class="banner">
+            <img src="public/banner.png" />
+            <h3>A little progress each day adds up to big results.</h3>
+          </div>
+
+          <div class="habit">
+            <h3>Daily Goals</h3>
+            <label class="habit-item">
+              <input type="checkbox" />
+              <span>Drink 8 glasses of water</span>
+            </label>
+            <label class="habit-item">
+              <input type="checkbox" />
+              <span>10,000 steps</span>
+            </label>
+            <label class="habit-item">
+              <input type="checkbox" />
+              <span>7-8 hours of sleep</span>
+            </label>
+            <label class="habit-item">
+              <input type="checkbox" />
+              <span>Eat 5 servings of veggies</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="sect-2">
+          <h3>Weekly Habit Grid</h3>
+          <div class="habit-grid">
+            <div class="habit-row">
+              <span class="habit-name">Day</span>
+              <span>Mon</span>
+              <span>Tue</span>
+              <span>Wed</span>
+              <span>Thu</span>
+              <span>Fri</span>
+              <span>Sat</span>
+              <span>Sun</span>
+            </div>
+            <div class="habit-row">
+              <span class="habit-name">Water</span>
+              <input type="checkbox" />
+              <input type="checkbox" />
+              <input type="checkbox" />
+              <input type="checkbox" />
+              <input type="checkbox" />
+              <input type="checkbox" />
+              <input type="checkbox" />
+            </div>
+            <div class="habit-row">
+              <span class="habit-name">Steps</span>
+              <input type="checkbox" />
+              <input type="checkbox" />
+              <input type="checkbox" />
+              <input type="checkbox" />
+              <input type="checkbox" />
+              <input type="checkbox" />
+              <input type="checkbox" />
+            </div>
+            <div class="habit-row">
+              <span class="habit-name">Sleep</span>
+              <input type="checkbox" />
+              <input type="checkbox" />
+              <input type="checkbox" />
+              <input type="checkbox" />
+              <input type="checkbox" />
+              <input type="checkbox" />
+              <input type="checkbox" />
+            </div>
+            <div class="habit-row">
+              <span class="habit-name">Veggies</span>
+              <input type="checkbox" />
+              <input type="checkbox" />
+              <input type="checkbox" />
+              <input type="checkbox" />
+              <input type="checkbox" />
+              <input type="checkbox" />
+              <input type="checkbox" />
+            </div>
+          </div>
+        </div>
+
+        <div class="sect-3">
+          <h3>Nutrition Search</h3>
+          <div class="nutrition-search">
+            <input
+              type="text"
+              id="foodInput"
+              placeholder="Enter a food (e.g., Tomato, Rice, Chicken)"
+            />
+            <button id="searchBtn">Search</button>
+          </div>
+          <div id="nutritionResult"></div>
         </div>
       </main>
     </div>
     <script src="sidebar.js"></script>
+    <script src="nutrition.js"></script>
   </body>
 </html>
