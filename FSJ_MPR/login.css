@@ -1,0 +1,101 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--background-color);
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-title {
+  font-size: 40px;
+  color: var(--primary-color);
+  margin-bottom: 30px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.login-form {
+  background-color: var(--surface-color);
+  padding: 40px 35px;
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(13, 107, 112, 0.15);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 420px;
+  transition: box-shadow 0.3s ease;
+}
+
+.login-form:hover {
+  box-shadow: 0 16px 36px rgba(13, 107, 112, 0.25);
+}
+
+.login-label {
+  margin-bottom: 10px;
+  font-size: 17px;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.login-input {
+  margin-bottom: 20px;
+  padding: 14px 15px;
+  border: 1.8px solid var(--primary-color);
+  border-radius: 8px;
+  font-size: 17px;
+  color: var(--text-color);
+  outline-offset: 2px;
+  transition: border-color 0.3s ease;
+}
+
+.login-input:focus {
+  border-color: var(--input-focus-color);
+  box-shadow: 0 0 6px var(--input-focus-color);
+}
+
+.login-button {
+  padding: 14px 0;
+  background-color: var(--primary-color);
+  color: var(--surface-color);
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(13, 107, 112, 0.2);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: var(--hover-color);
+  box-shadow: 0 8px 16px rgba(13, 107, 112, 0.3);
+}
+
+.register,
+.forgot-password {
+  margin-top: 18px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.register a,
+.forgot-password a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.register a:hover,
+.forgot-password a:hover {
+  text-decoration: underline;
+  color: var(--hover-color);
+}
