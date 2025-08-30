@@ -3,7 +3,7 @@ const dashLinks = document.getElementById("dash-links");
 
 const mobileLogout = document.createElement("li");
 mobileLogout.classList.add("logout");
-mobileLogout.innerHTML = `<i class="fa-solid fa-arrow-left"></i>Logout`;
+mobileLogout.innerHTML = `<i class="fa-solid fa-arrow-left"></i><a href="/index.html">Logout</a>`;
 
 toggleBtn.addEventListener("click", () => {
   dashLinks.classList.toggle("active");

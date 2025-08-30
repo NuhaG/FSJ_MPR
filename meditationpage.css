@@ -4,28 +4,28 @@
 }
 
 header {
-  background-color: var(--background-color);
+  background-image: url("public/medbgimg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
-
 .heading {
   color: var(--primary-color);
   text-align: center;
   font-weight: 700;
-  font-size: clamp(1.5rem, 5vw, 2.5rem); /*  min 1.5rem (24px), grows up to 2.5rem (40px) on large screens */
-  /* padding: 75px; */
+  font-size: clamp(
+    1.5rem,
+    5vw,
+    2.5rem
+  ); /*  min 1.5rem (24px), grows up to 2.5rem (40px) on large screens */
   height: auto;
   text-decoration: none;
-  margin: 20px;
 }
 .captiontext {
   text-align: center;
   color: var(--text-color);
   font-size: medium;
   font-size: clamp(0.9rem, 2.5vw, 1.2rem);
-  /* font-size: 16px; */
   margin: 20px auto 40px auto;
 }
 .container {
@@ -38,7 +38,8 @@ header {
 }
 .card {
   background-color: var(--primary-color);
-  color: white;
+  border: 1px solid var(--surface-color);
+  color: #fff;
   width: 300px;
   height: 300px;
   margin: 10px;

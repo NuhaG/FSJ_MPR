@@ -90,37 +90,36 @@ body {
 
 @media (max-width: 466px) {
   .nav-links {
-    z-index: 100;
+    z-index: 60;
     position: absolute;
-    top: 48px;
-    right: 2px;
-    border: var(--surface-color) 1px solid;
-    border-radius: 5px;
-    box-shadow: rgba(25, 1, 47, 0.4) 0px 4px 8px;
-    width: 60%;
+    top: 55px;
+    right: 10px;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 20px;
+    width: 80%;
     background-color: var(--primary-color);
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     display: none;
+    padding: 10px;
   }
-
-  .nav-links li {
-    font-size: smaller;
-    padding: 4px;
-    font-weight: lighter;
-    margin: 3px 15px;
-    text-align: center;
-  }
-
-  .nav-toggle {
-    display: block;
-  }
-
   .nav-links.active {
     display: flex;
   }
+  .nav-links li {
+    padding: 10px 15px;
+    font-weight: 400;
+    margin: 4px 0;
+    border-radius: 8px;
+    text-align: center;
+  }
+  .nav-links li:hover {
+    background-color: var(--hover-color);
+  }
+  .nav-toggle {
+    display: block;
+  }
 }
-
 /* Hero section */
 .hero {
   position: relative;
@@ -128,7 +127,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: var(--accent-color); /* fallback color */
+  background-color: var(--accent-color);
   color: var(--surface-color);
   height: 100vh;
   display: flex;

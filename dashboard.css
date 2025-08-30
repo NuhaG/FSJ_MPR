@@ -35,6 +35,10 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
+.logout a {
+  color: white;
+  text-decoration: none;
+}
 .logout i {
   margin-left: 5px;
 }
