@@ -24,6 +24,8 @@ document.getElementById("searchBtn").addEventListener("click", async () => {
       resultDiv.innerHTML = "<p>No nutrition info found.</p>";
       return;
     }
+    console.log(data);
+    
     const item = data.items[0];
     resultDiv.innerHTML = `
         <h4><strong>${item.name.toUpperCase()}</strong></h4>
