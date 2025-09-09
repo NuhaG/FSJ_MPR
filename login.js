@@ -18,6 +18,8 @@ form.addEventListener("submit", function (e) {
   const user = users.find((u) => u.email === email && u.password === password);
 
   if (user) {
+    const name = email.split("@")[0];
+    localStorage.setItem("currentUser", JSON.stringify({name,email}));
     alert("Login successful");
     window.location.href = "/dashboard.html";
     return;
