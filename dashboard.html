@@ -38,7 +38,9 @@
             >
           </li>
           <li>
-            <a href="/mudra.html"><i class="fa-solid fa-dumbbell"></i>Yoga Asanas</a>
+            <a href="/mudra.html"
+              ><i class="fa-solid fa-dumbbell"></i>Yoga Asanas</a
+            >
           </li>
         </ul>
         <div class="logout" id="desktop-logout">
@@ -65,79 +67,49 @@
             <h3>A little progress each day adds up to big results.</h3>
           </div>
 
-          <div class="habit">
-            <h3>Daily Goals</h3>
-            <label class="habit-item">
-              <input type="checkbox" />
-              <span>Drink 8 glasses of water</span>
-            </label>
-            <label class="habit-item">
-              <input type="checkbox" />
-              <span>10,000 steps</span>
-            </label>
-            <label class="habit-item">
-              <input type="checkbox" />
-              <span>7-8 hours of sleep</span>
-            </label>
-            <label class="habit-item">
-              <input type="checkbox" />
-              <span>Eat 5 servings of veggies</span>
-            </label>
+          <div class="task-section">
+            <h3>My Tasks</h3>
+            <div class="task-input">
+              <input
+                type="text"
+                id="taskInput"
+                placeholder="Add a new task..."
+              />
+              <button id="addTaskBtn">Add</button>
+            </div>
+            <ul id="taskList" class="task-list"></ul>
           </div>
         </div>
 
         <div class="sect-2">
-          <h3>Weekly Habit Grid</h3>
-          <div class="habit-grid">
-            <div class="habit-row">
-              <span class="habit-name">Day</span>
-              <span>Mon</span>
-              <span>Tue</span>
-              <span>Wed</span>
-              <span>Thu</span>
-              <span>Fri</span>
-              <span>Sat</span>
-              <span>Sun</span>
+          <h3>Health Metrics</h3>
+          <div class="metrics-grid">
+            <!-- Water Intake -->
+            <div class="metric-card">
+              <h4>Water Intake</h4>
+              <div class="progress-container">
+                <div id="waterProgress" class="progress-bar"></div>
+              </div>
+              <div class="metric-controls">
+                <button id="drinkWater">+1 Glass</button>
+                <span id="waterCount">0/8</span>
+              </div>
             </div>
-            <div class="habit-row">
-              <span class="habit-name">Water</span>
-              <input type="checkbox" />
-              <input type="checkbox" />
-              <input type="checkbox" />
-              <input type="checkbox" />
-              <input type="checkbox" />
-              <input type="checkbox" />
-              <input type="checkbox" />
+
+            <!-- Steps -->
+            <div class="metric-card">
+              <h4>Steps</h4>
+              <span id="stepsCount">0</span>
+              <input type="number" id="stepsInput" placeholder="Enter steps" />
+              <button id="saveSteps">Save</button>
             </div>
-            <div class="habit-row">
-              <span class="habit-name">Steps</span>
-              <input type="checkbox" />
-              <input type="checkbox" />
-              <input type="checkbox" />
-              <input type="checkbox" />
-              <input type="checkbox" />
-              <input type="checkbox" />
-              <input type="checkbox" />
-            </div>
-            <div class="habit-row">
-              <span class="habit-name">Sleep</span>
-              <input type="checkbox" />
-              <input type="checkbox" />
-              <input type="checkbox" />
-              <input type="checkbox" />
-              <input type="checkbox" />
-              <input type="checkbox" />
-              <input type="checkbox" />
-            </div>
-            <div class="habit-row">
-              <span class="habit-name">Veggies</span>
-              <input type="checkbox" />
-              <input type="checkbox" />
-              <input type="checkbox" />
-              <input type="checkbox" />
-              <input type="checkbox" />
-              <input type="checkbox" />
-              <input type="checkbox" />
+
+            <!-- Heart Rate -->
+            <div class="metric-card">
+              <h4>Heart Rate (BPM)</h4>
+              <span id="heartCount">70</span>
+              <input type="number" id="heartInput" placeholder="Enter BPM" />
+              <button id="saveHeart">Save</button>
             </div>
           </div>
         </div>
@@ -157,6 +129,8 @@
       </main>
     </div>
     <script src="sidebar.js"></script>
+    <script src="metric.js"></script>
+    <script src="habit.js"></script>
     <script src="nutrition.js"></script>
   </body>
 </html>
