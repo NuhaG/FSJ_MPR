@@ -32,7 +32,8 @@
             <p> Difficulty : Easy</p>
             <p> Duration: 10 minutes</p>
         
-            <span class="songlistplay"><i class="fa-solid fa-circle-play"></i> </span>
+            <span class="songlistplay" data-src="meditation1.mp3"><i class="fa-solid fa-circle-play"></i> </span>
+             
         </div>
         <div class="card">
             <div class="cardimage card2"></div>
@@ -87,6 +88,78 @@
 </div>
 
     </header>
+   
+
+<i id="playPauseBtn" class="fa-solid fa-circle-play"></i>
+<audio id="globalAudio"></audio>
+<script>
+const audio = document.getElementById('globalAudio');
+const buttons = document.querySelectorAll('.songlistplay');
+let currentButton = null; 
+
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const icon = btn.querySelector('i');
+    const src  = btn.dataset.src;
+
+    
+    if (currentButton !== btn) {
+      
+      if (currentButton) {
+        currentButton.querySelector('i').classList.remove('fa-circle-pause');
+        currentButton.querySelector('i').classList.add('fa-circle-play');
+      }
+
+     
+      audio.src = src;
+      audio.play();
+
+      icon.classList.remove('fa-circle-play');
+      icon.classList.add('fa-circle-pause');
+      currentButton = btn;
+      return;
+    }
+
+    if (audio.paused) {
+      audio.play();
+      icon.classList.remove('fa-circle-play');
+      icon.classList.add('fa-circle-pause');
+    } else {
+      audio.pause();
+      icon.classList.remove('fa-circle-pause');
+      icon.classList.add('fa-circle-play');
+    }
+  });
+});
+
+
+audio.addEventListener('ended', () => {
+  if (currentButton) {
+    currentButton.querySelector('i').classList.remove('fa-circle-pause');
+    currentButton.querySelector('i').classList.add('fa-circle-play');
+    currentButton = null;
+  }
+});
+</script>
+
     
 </body>
 </html>
+<script>
+const btn = document.getElementById('playPauseBtn');
+
+btn.addEventListener('click', () => {
+ 
+  if (btn.classList.contains('fa-solid fa-circle-play')) {
+    btn.classList.remove('fa-solid fa-circle-play');
+    btn.classList.add('fa-solid fa-circle-play');
+  } 
+ 
+  else {
+    btn.classList.remove('fa-solid fa-circle-play');
+    btn.classList.add('fa-solid fa-circle-play');
+  }
+});
+</script>
+
+  
