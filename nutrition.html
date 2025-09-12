@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nutrition Basics</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="nutrition.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Nutrition Information</h1>
+      <p class="tagline">A concise guide to nutrients and healthy eating</p>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>Tip of the Day</h2>
+        <p id="daily-tip">Loading tip...</p>
+      </section>
+
+      <section class="card">
+        <h2>What is Nutrition?</h2>
+        <p>
+          Nutrition is the study of how food and drink affect our bodies. Proper
+          nutrition provides the energy and nutrients needed for growth, repair,
+          and overall health.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Major Nutrients</h2>
+        <ul>
+          <li>
+            <strong>Carbohydrates</strong> – Main source of energy for the body.
+          </li>
+          <li>
+            <strong>Proteins</strong> – Essential for growth and repair of
+            tissues.
+          </li>
+          <li>
+            <strong>Fats</strong> – Provide energy, support cell growth, and
+            help absorb vitamins.
+          </li>
+          <li>
+            <strong>Vitamins & Minerals</strong> – Support immune function and
+            metabolic processes.
+          </li>
+          <li>
+            <strong>Water</strong> – Vital for temperature regulation and
+            nutrient transport.
+          </li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Balanced Diet Tips</h2>
+        <ul>
+          <li>Eat plenty of fruits and vegetables.</li>
+          <li>Choose whole grains instead of refined grains.</li>
+          <li>Include lean proteins such as beans, fish, or poultry.</li>
+          <li>Use healthy fats from nuts, seeds, and olive oil.</li>
+          <li>Limit added sugars and salt.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Why It Matters</h2>
+        <p>
+          Good nutrition helps maintain a healthy weight, reduces the risk of
+          chronic diseases like heart disease and diabetes, and promotes overall
+          well-being.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Healthy Plate</h2>
+        <img
+          src="public/plate.png"
+          alt="Balanced plate graphic"
+          class="plate-image"
+        />
+        <p class="img-caption">
+          Fill half your plate with vegetables & fruits, a quarter with lean
+          proteins, and a quarter with whole grains.
+        </p>
+      </section>
+
+      <div class="end-btn">
+        <button class="btn">
+          <a href="/dashboard.html"> Back </a>
+        </button>
+      </div>
+
+      <script>
+        const tips = [
+          "Snack on a handful of unsalted nuts or seeds instead of chips.",
+          "Drink a full glass of water before each meal to stay hydrated.",
+          "Choose whole fruits over fruit juices to get more fiber.",
+          "Add a handful of leafy greens to your lunch or dinner every day.",
+          "Start your morning with a high-protein breakfast to stay full longer.",
+          "Swap sugary drinks for sparkling water with a splash of lemon.",
+          "Include at least three different colored vegetables on your plate.",
+          "Use herbs and spices instead of extra salt for flavor.",
+          "Take a short walk after meals to aid digestion.",
+          "Plan your meals ahead to avoid last-minute unhealthy choices.",
+        ];
+        document.getElementById("daily-tip").textContent =
+          tips[Math.floor(Math.random() * tips.length)];
+      </script>
+    </main>
+  </body>
+</html>

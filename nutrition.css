@@ -1,0 +1,102 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+header {
+  background: var(--primary-color);
+  padding: 18px;
+  text-align: center;
+}
+header h1 {
+  font-size: 2.6rem;
+  color: white;
+  font-weight: bolder;
+}
+header .tagline {
+  color: var(--accent-color);
+}
+main {
+  max-width: 920px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+.card {
+  border: 1px solid var(--secondary-color);
+  background-color: var(--surface-color);
+  margin: 14px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 14px rgb(220, 141, 119, 0.3);
+  transition: transform 0.26s ease, box-shadow 0.36s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(220, 141, 119, 0.5);
+}
+h2 {
+  color: var(--primary-color);
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+ul {
+  margin-left: 20px;
+}
+.end-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+.btn {
+  padding: 15px;
+  font-size: large;
+  border: 1px solid var(--secondary-color);
+  border-radius: 5px;
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  box-shadow: 0 6px 14px rgb(220, 141, 119, 0.5);
+  transition: transform 0.25s ease;
+}
+.btn:hover {
+  background-color: var(--secondary-color);
+  transform: scale(1.03);
+}
+.btn a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+.plate-image {
+  max-width: 90%;
+  display: block;
+  margin: 10px auto 14px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  transition: transform 0.25s ease;
+}
+.plate-image:hover {
+  transform: scale(1.03);
+}
+.img-caption {
+  text-align: center;
+  color: var(--text-secondary-color);
+  font-size: 0.95rem;
+  margin-top: 0;
+}
+#daily-tip {
+  background: var(--accent-color);
+  color: var(--text-color);
+  padding: 18px 20px;
+  border-left: 6px solid var(--primary-color);
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  margin-top: 10px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+#daily-tip:hover {
+  background-color: rgba(83, 225, 197, 0.85);
+}
