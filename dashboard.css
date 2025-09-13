@@ -226,7 +226,7 @@
   transform: scale(1.1);
 }
 
-/* Section 2 *//* Section 2 - Health Metrics */
+/* Section 2 - Health Metrics */
 .sect-2 {
   flex: 1 1 100%;
   background-color: var(--surface-color);
@@ -269,6 +269,7 @@
   font-weight: bold;
   text-align: center;
 }
+
 /* Progress Bar for Water Intake */
 .progress-container {
   margin: 10px;
