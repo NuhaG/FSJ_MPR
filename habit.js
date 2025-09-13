@@ -41,7 +41,10 @@ function removeTask(index) {
 }
 
 addBtn.addEventListener("click", addTask);
-renderTasks();
+taskInput.addEventListener("keydown", (e) => {
+  if(e.key === 'Enter') {
+    addTask();
+  }
+});
 
-window.toggleTask = toggleTask;
-window.removeTask = removeTask;
+renderTasks();
