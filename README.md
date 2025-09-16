@@ -67,6 +67,6 @@ test1@gmail.com / test123
 2. **Open in a browser**
 
    * No build tools or server required.
-   * Simply open `index.html` (or `dashboard.html`) in any modern browser.
+   * Simply open `index.html` in any modern browser.
 
 ---
