@@ -226,7 +226,7 @@
   transform: scale(1.1);
 }
 
-/* Section 2 *//* Section 2 - Health Metrics */
+/* Section 2 - Health Metrics */
 .sect-2 {
   flex: 1 1 100%;
   background-color: var(--surface-color);
@@ -269,6 +269,7 @@
   font-weight: bold;
   text-align: center;
 }
+
 /* Progress Bar for Water Intake */
 .progress-container {
   margin: 10px;
@@ -370,12 +371,11 @@
   color: white;
   border-radius: 6px;
   cursor: pointer;
+  transition: background-color 0.4s ease, transform 0.4s ease;
 }
-#nutritionResult {
-  margin-top: 15px;
-  padding: 10px;
-  border-radius: 8px;
-  background: rgba(13, 107, 112, 0.05);
+.nutrition-search button:hover {
+  background: var(--secondary-color);
+  transform: scale(1.05);
 }
 
 @media (max-width: 425px) {
@@ -435,4 +435,35 @@
   .dash-links.active {
     display: flex;
   }
+}
+
+/* Nutrition search */
+.nutrition-card {
+  background: var(--surface-color);           
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  padding: 16px 20px;
+  max-width: 440px;
+  text-align: center;
+  margin: 10px auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease;
+  font-weight:bolder;
+}
+.nutrition-card:hover {
+  transform: translateY(-4px); 
+}
+.nutrition-card h4 {
+  font-size: 1.2rem;
+  
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+.nutrition-card p {
+  margin: 4px 0;
+  color: var(--text-color);                
+  font-size: 0.95rem;
+}
+.nutrition-card p strong {
+  color: var(--primary-color);              
 }

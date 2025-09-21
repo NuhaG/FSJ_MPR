@@ -25,15 +25,16 @@ document.getElementById("searchBtn").addEventListener("click", async () => {
       return;
     }
     console.log(data);
-    
+
     const item = data.items[0];
     resultDiv.innerHTML = `
+        <div class="nutrition-card">
         <h4><strong>${item.name.toUpperCase()}</strong></h4>
         <p><strong>Calories:</strong> ${item.calories} kcal</p>
         <p><strong>Protein:</strong> ${item.protein_g} g</p>
         <p><strong>Carbohydrates:</strong> ${item.carbohydrates_total_g} g</p>
         <p><strong>Fat:</strong> ${item.fat_total_g} g</p>
-      `;
+        </div>`;
   } catch (err) {
     resultDiv.innerHTML = "<p>Error fetching data. Please try again.</p>";
   }
