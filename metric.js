@@ -25,6 +25,7 @@ document.getElementById("saveSteps").addEventListener("click", ()=>{
 });
 stepsCount.textContent = steps;
 
+// Heart
 let heart = parseInt(localStorage.getItem("heart")) || 70;
 const heartCount = document.getElementById("heartCount");
 document.getElementById("saveHeart").addEventListener("click", ()=>{
