@@ -18,7 +18,7 @@ form.addEventListener("submit", (e) => {
   } else {
     alert("Email not found proceed to signup");
     setTimeout(() => {
-      window.location.href = "/signup.html";
+      window.location.href = "signup.html";
     }, 1000);
   }
 });

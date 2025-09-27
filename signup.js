@@ -28,5 +28,5 @@ form.addEventListener("submit", (e) => {
     localStorage.setItem("users", JSON.stringify(users));
 
     alert("Account created successfully! Please Login");
-    window.location.href = "/login.html";
+    window.location.href = "login.html";
 })
