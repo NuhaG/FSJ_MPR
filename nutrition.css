@@ -24,6 +24,7 @@ main {
 .card {
   border: 1px solid var(--secondary-color);
   background-color: var(--surface-color);
+  color: var(--text-color);
   margin: 14px;
   padding: 20px;
   border-radius: 10px;
@@ -55,7 +56,7 @@ ul {
   border: 1px solid var(--secondary-color);
   border-radius: 5px;
   background-color: var(--accent-color);
-  color: var(--primary-color);
+  color: var(--text-color);
   box-shadow: 0 6px 14px rgb(220, 141, 119, 0.5);
   transition: transform 0.25s ease;
 }
@@ -65,7 +66,7 @@ ul {
 }
 .btn a {
   text-decoration: none;
-  color: var(--primary-color);
+  color: var(--text-color);
 }
 .plate-image {
   max-width: 90%;
@@ -86,7 +87,6 @@ ul {
 }
 #daily-tip {
   background: var(--accent-color);
-  color: var(--text-color);
   padding: 18px 20px;
   border-left: 6px solid var(--primary-color);
   border-radius: 10px;

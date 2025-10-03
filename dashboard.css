@@ -467,3 +467,151 @@
 .nutrition-card p strong {
   color: var(--primary-color);              
 }
+
+/* Sidebar */
+.dark-theme .sidebar {
+  background: linear-gradient(135deg, var(--background-color), var(--primary-color));
+  color: var(--text-color);
+}
+
+.dark-theme .user-logo {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+.dark-theme .dash-links a {
+  color: var(--text-color);
+}
+
+.dark-theme .dash-links li i,
+.dark-theme .logout i {
+  color: var(--text-color);
+}
+
+.dark-theme .dash-links li:hover a {
+  background-color: var(--hover-color);
+}
+
+/* Dashboard background */
+.dark-theme .dashboard {
+  background-color: var(--background-color);
+}
+
+/* Cards / Panels */
+.dark-theme .task-section,
+.dark-theme .sect-2,
+.dark-theme .sect-3,
+.dark-theme .nutrition-card,
+.dark-theme .metric-card,
+.dark-theme .profile {
+  background-color: var(--surface-color);
+  color: var(--text-color);
+  border-radius: 12px;
+  box-shadow:
+    5px 5px 15px rgba(0,0,0,0.6),
+    -5px -5px 15px rgba(50,70,90,0.3);
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for cards */
+.dark-theme .task-section:hover,
+.dark-theme .sect-2:hover,
+.dark-theme .sect-3:hover,
+.dark-theme .banner:hover,
+.dark-theme .nutrition-card:hover,
+.dark-theme .metric-card:hover {
+  box-shadow:
+    8px 8px 20px rgba(0,0,0,0.7),
+    -8px -8px 20px rgba(50,70,90,0.4);
+  transform: translateY(-2px);
+}
+
+/* Banner / Quote Card */
+.dark-theme .banner {
+  background-color: var(--surface-color);
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.4),
+              -2px -2px 6px rgba(50,70,90,0.2);
+}
+
+.dark-theme .banner h3 {
+  color: #ffffff;
+  text-shadow: 0px 3px 8px rgba(0,0,0,0.7);
+}
+
+/* Task list & text */
+.dark-theme .task-list li,
+.dark-theme .nutrition-card p,
+.dark-theme .metric-card span {
+  color: var(--text-color);
+}
+
+.dark-theme .task-list li.completed span {
+  color: var(--text-secondary-color);
+  text-decoration: line-through;
+}
+
+/* Inputs & buttons */
+.dark-theme .task-input input,
+.dark-theme .metric-card input[type="number"],
+.dark-theme .nutrition-search input {
+  background-color: var(--surface-color);
+  color: var(--text-color);
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.dark-theme .task-input button,
+.dark-theme .metric-card button,
+.dark-theme .nutrition-search button {
+  background-color: var(--primary-color);
+  color: var(--surface-color);
+  border-radius: 8px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.4),
+              -2px -2px 6px rgba(50,70,90,0.2);
+  transition: 0.3s ease, transform 0.2s ease;
+}
+
+.dark-theme .task-input button:hover,
+.dark-theme .metric-card button:hover,
+.dark-theme .nutrition-search button:hover {
+  background-color: var(--secondary-color);
+  transform: scale(1.05);
+}
+
+/* Progress bars */
+.dark-theme .progress-container {
+  background: rgba(245,245,245,0.05);
+  border-radius: 8px;
+}
+
+.dark-theme .progress-bar {
+  background: var(--primary-color);
+  border-radius: 8px;
+}
+
+/* Responsive fixes */
+@media (max-width: 425px) {
+  .dark-theme .sidebar {
+    width: 100%;
+    height: fit-content;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    position: relative;
+  }
+  .dark-theme .sidebar ul {
+    background-color: var(--primary-color);
+  }
+  .dark-theme .user-logo {
+    background-color: transparent;
+  }
+  #desktop-logout {
+    display: none;
+  }
+  .toggle-sidebar {
+    display: block;
+    color: var(--text-color);
+  }
+}

@@ -145,18 +145,20 @@
         }
       });
     </script>
+  
+  <script>
+    const btn = document.getElementById("playPauseBtn");
+
+    btn.addEventListener("click", () => {
+      if (btn.classList.contains("fa-solid fa-circle-play")) {
+        btn.classList.remove("fa-solid fa-circle-play");
+        btn.classList.add("fa-solid fa-circle-play");
+      } else {
+        btn.classList.remove("fa-solid fa-circle-play");
+        btn.classList.add("fa-solid fa-circle-play");
+      }
+    });
+  </script>
+  <script src="theme.js"></script>
   </body>
 </html>
-<script>
-  const btn = document.getElementById("playPauseBtn");
-
-  btn.addEventListener("click", () => {
-    if (btn.classList.contains("fa-solid fa-circle-play")) {
-      btn.classList.remove("fa-solid fa-circle-play");
-      btn.classList.add("fa-solid fa-circle-play");
-    } else {
-      btn.classList.remove("fa-solid fa-circle-play");
-      btn.classList.add("fa-solid fa-circle-play");
-    }
-  });
-</script>

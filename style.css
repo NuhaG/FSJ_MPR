@@ -1,26 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
-  --primary-color: rgb(13, 107, 112); /* primary color main branding color */
-  --secondary-color: rgb(
-    220,
-    141,
-    119
-  ); /* secondary color for accents : buttons*/
-  --accent-color: rgb(
-    83,
-    225,
-    197
-  ); /* accent color for highlights : special sections */
-  --background-color: rgb(249, 243, 236); /* background color */
-  --surface-color: rgb(255, 255, 255); /* surface color for cards and panels */
-  --text-color: rgb(60, 60, 60); /* main text color */
-  --text-secondary-color: rgb(
-    100,
-    100,
-    100
-  ); /* secondary text color for less emphasis */
-  --hover-color: rgb(184, 111, 97); /* hover color for links and buttons */
+  --primary-color: rgb(13, 107, 112); /* main branding color */
+  --secondary-color: rgb(220, 141, 119); /* accents */
+  --accent-color: rgb(83, 225, 197); /* highlights */
+  --background-color: rgb(249, 243, 236); /* background */
+  --surface-color: rgb(255, 255, 255); /* cards/panels */
+  --text-color: rgb(60, 60, 60); /* main text */
+  --text-secondary-color: rgb(100, 100, 100); /* secondary text */
+  --hover-color: rgb(184, 111, 97); /* hover for links/buttons */
+}
+
+/* Dark mode */
+.dark-theme {
+  --primary-color: rgb(0, 150, 140);          /* brand accent */
+  --secondary-color: rgb(255, 160, 120);      /* soft accent */
+  --accent-color: rgb(0, 200, 180);           /* highlight accent */
+  --background-color: rgb(12, 20, 30);        /* main background */
+  --surface-color: rgb(32, 44, 60);           /* cards/panels */
+  --text-color: rgb(245, 245, 245);           /* main text */
+  --text-secondary-color: rgb(180, 200, 210); /* secondary text */
+  --hover-color: rgba(255, 160, 120, 0.15);  /* subtle hover */
 }
 
 * {
@@ -39,7 +39,7 @@ body {
 
 /* nav section */
 .navbar {
-  background-color: var(--primary-color);
+  background-color: var(--accent-color);
   color: var(--text-color);
   padding: 10px;
   display: flex;
@@ -88,6 +88,7 @@ body {
   text-decoration: none;
 }
 
+/* Responsive Navbar */
 @media (max-width: 466px) {
   .nav-links {
     z-index: 60;
@@ -95,7 +96,7 @@ body {
     top: 55px;
     right: 10px;
     border-radius: 12px;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 8px 20px;
     width: 80%;
     background-color: var(--primary-color);
     flex-direction: column;
@@ -120,6 +121,7 @@ body {
     display: block;
   }
 }
+
 /* Hero section */
 .hero {
   position: relative;
@@ -142,9 +144,16 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6); /* stronger overlay for dark mode */
   z-index: -1;
   border-radius: inherit;
+}
+
+/* Hero section */
+.hero h1, .hero p, .hero a {
+  position: relative;
+  z-index: 2;
+  color: white;
 }
 
 .hero h1 {
@@ -340,7 +349,6 @@ i {
 }
 .service_card h4 {
   margin-top: 10px;
-
   font-weight: 600;
   color: var(--hover-color);
 }
@@ -371,6 +379,7 @@ i {
   }
 }
 
+/* Footer */
 .footer1 {
   margin-top: 80px;
   background-color: var(--primary-color);

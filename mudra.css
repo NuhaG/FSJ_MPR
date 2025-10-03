@@ -1,14 +1,3 @@
-:root {
-  --primary-color: rgb(13, 107, 112); 
-  --secondary-color: rgb(220, 141, 119); 
-  --accent-color: rgb(83, 225, 197); 
-  --background-color: rgb(249, 243, 236); 
-  --surface-color: rgb(255, 255, 255); 
-  --text-color: rgb(60, 60, 60); 
-  --text-secondary-color: rgb(100, 100, 100); 
-  --hover-color: rgb(184, 111, 97); 
-}
-
 * {
   margin: 0;
   padding: 0;
