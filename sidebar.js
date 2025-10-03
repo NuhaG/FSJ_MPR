@@ -9,7 +9,7 @@ mobileLogout.innerHTML = `<i class="fa-solid fa-arrow-left"></i><a href="/index.
 mobileLogout.querySelector("a").addEventListener("click", (e) => {
   e.preventDefault(); // prevent immediate navigation
   localStorage.removeItem("currentUser");
-  window.location.href = "/index.html"; // redirect after clearing
+  window.location.href = "index.html"; // redirect after clearing
 });
 
 toggleBtn.addEventListener("click", () => {
