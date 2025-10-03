@@ -444,3 +444,17 @@ i {
   text-align: center;
   justify-content: center;
 }
+
+/* Default input style */
+input,
+textarea,
+select {
+  color: #000 !important;            
+  background-color: #fff !important;  
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #000 !important;
+  opacity: 1 !important;
+}

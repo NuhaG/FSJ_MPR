@@ -3,7 +3,7 @@ const dashLinks = document.getElementById("dash-links");
 
 const mobileLogout = document.createElement("li");
 mobileLogout.classList.add("logout");
-mobileLogout.innerHTML = `<i class="fa-solid fa-arrow-left"></i><a href="/index.html">Logout</a>`;
+mobileLogout.innerHTML = `<i class="fa-solid fa-arrow-left"></i><a href="index.html">Logout</a>`;
 
 // Add event listener to remove currentUser
 mobileLogout.querySelector("a").addEventListener("click", (e) => {
