@@ -4,7 +4,6 @@ A **self-care and wellness dashboard** built purely with **HTML, CSS, and Vanill
 This project helps users track healthy habits, stay mindful, and manage daily wellness tasks in one responsive interface.
 
 ---
-
 ## 🌟 Features
 
 ### 🏠 Dashboard
@@ -19,7 +18,17 @@ This project helps users track healthy habits, stay mindful, and manage daily we
 
 * **Yoga Asanas & Mudras** – browse poses and breathing exercises.
 * **Meditation Page** – calming **MP3 background music** for guided sessions.
-* **Medication Tracker** – log and view medicine schedules.
+* **Medication Tracker** – log and view medicine schedules:
+  * **Desktop notifications** to remind you **exactly at the scheduled time**, even when the tab is inactive.
+  * **Add / Remove medications** easily.
+  * **Next dose display** for quick overview.
+
+### 🌙 Dark Mode
+
+* Toggle between **light and dark themes** with a single button.
+* Fully adjusts colors across the app for **comfortable night-time use**.
+* Works across all pages, including **Dashboard, Medication Tracker, and Nutrition pages**.
+
 
 ### 🥗 Nutrition
 
@@ -70,3 +79,11 @@ test1@gmail.com / test123
    * Simply open `index.html` in any modern browser.
 
 ---
+
+## 🚧 Future Improvements
+
+* Cloud sync for cross-device access  
+* Advanced notifications with snooze  
+* Analytics dashboard for health metrics  
+* Export/backup data (CSV/JSON)  
+* Accessibility enhancements
