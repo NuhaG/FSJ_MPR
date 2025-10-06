@@ -19,13 +19,13 @@ function renderMeds() {
     div.className = "med-item";
     div.innerHTML = `
       <div class="med-info">
-        <div class="med-name">${m.name}</div>  // Medication name
-        <div class="med-time">Time: ${m.time}</div>  // Scheduled time
-        <div class="med-note">${m.note || ""}</div>  // Optional note
+        <div class="med-name">${m.name}</div>
+        <div class="med-time">Time: ${m.time}</div>
+        <div class="med-note">${m.note || ""}</div>
       </div>
       <div class="med-actions">
-        <input type="checkbox" onchange="markTaken(${i}, this)" ${m.taken ? "checked" : ""}>  // Mark as taken
-        <button onclick="deleteMed(${i})">✖</button>  // Delete med
+        <input type="checkbox" onchange="markTaken(${i}, this)" ${m.taken ? "checked" : ""}>
+        <button onclick="deleteMed(${i})">✖</button>
       </div>`;
     list.appendChild(div); // Add to DOM
   });
