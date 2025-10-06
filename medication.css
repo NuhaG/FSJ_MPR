@@ -146,3 +146,31 @@ button:hover {
     padding: 20px;
   }
 }
+
+.end-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px;
+}
+
+.btn {
+  padding: 14px 20px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 8px;
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.25s ease;
+}
+
+.btn:hover {
+  background-color: var(--secondary-color);
+  transform: scale(1.03);
+}
+
+.btn a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 400;
+}
