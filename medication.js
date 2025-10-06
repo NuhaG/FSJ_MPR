@@ -1,173 +1,147 @@
-/* ============================================================
-   Medication Tracker – JavaScript Logic
-   Handles all medication management, reminders, notifications,
-   and progress tracking.
-   ============================================================ */
-
-// Load medications from localStorage (persistent storage)
+// Load meds from localStorage; if none exist, start with empty array
 let meds = JSON.parse(localStorage.getItem("meds")) || [];
 
-/* ------------------------------------------------------------
-   Utility Functions
------------------------------------------------------------- */
+// ------------------ Utility Functions ------------------
 
-// Save medications array back to localStorage
+// Save meds array to localStorage for persistence
 function saveMeds() {
   localStorage.setItem("meds", JSON.stringify(meds));
 }
 
-// Re-render all medications to the UI
+// Render all meds in the UI
 function renderMeds() {
   const list = document.getElementById("medList");
-  list.innerHTML = "";
+  list.innerHTML = ""; // Clear current list
 
-  // Create medication cards dynamically
+  // Loop through meds and create HTML elements for each
   meds.forEach((m, i) => {
     const div = document.createElement("div");
     div.className = "med-item";
     div.innerHTML = `
       <div class="med-info">
-        <div class="med-name">${m.name}</div>
-        <div class="med-time">Time: ${m.time}</div>
-        <div class="med-note">${m.note || ""}</div>
+        <div class="med-name">${m.name}</div>  // Medication name
+        <div class="med-time">Time: ${m.time}</div>  // Scheduled time
+        <div class="med-note">${m.note || ""}</div>  // Optional note
       </div>
       <div class="med-actions">
-        <input type="checkbox" onchange="markTaken(${i}, this)" ${m.taken ? "checked" : ""}>
-        <button onclick="deleteMed(${i})">✖</button>
-      </div>
-    `;
-    list.appendChild(div);
+        <input type="checkbox" onchange="markTaken(${i}, this)" ${m.taken ? "checked" : ""}>  // Mark as taken
+        <button onclick="deleteMed(${i})">✖</button>  // Delete med
+      </div>`;
+    list.appendChild(div); // Add to DOM
   });
 
-  updateProgress();
-  getNextDose();
+  updateProgress(); // Update progress bar
+  getNextDose(); // Update next dose info & notifications
 }
 
-/* ------------------------------------------------------------
-   CRUD (Create, Read, Update, Delete) Functions
------------------------------------------------------------- */
+// ------------------ CRUD Functions ------------------
 
-// Add a new medication to the list
+// Add new med from input fields
 function addMedication() {
   const name = document.getElementById("medName").value.trim();
   const time = document.getElementById("medTime").value;
   const note = document.getElementById("medNote").value.trim();
+  if (!name || !time) return alert("Please enter both name and time."); // Validate inputs
 
-  if (!name || !time) return alert("Please enter both name and time.");
+  meds.push({ name, time, note, taken: false }); // Add new med object
+  saveMeds(); // Save updated meds
+  renderMeds(); // Refresh UI
 
-  meds.push({ name, time, note, taken: false });
-  saveMeds();
-  renderMeds();
-
-  // Reset input fields
+  // Clear input fields after adding
   document.getElementById("medName").value = "";
   document.getElementById("medTime").value = "";
   document.getElementById("medNote").value = "";
 }
 
-// Delete a medication by index
+// Delete medication at index i
 function deleteMed(i) {
-  meds.splice(i, 1);
-  saveMeds();
-  renderMeds();
+  meds.splice(i, 1); // Remove med from array
+  saveMeds(); // Update storage
+  renderMeds(); // Refresh UI
 }
 
-// Mark medication as taken (checkbox)
+// Mark medication as taken or not taken
 function markTaken(i, checkbox) {
-  meds[i].taken = checkbox.checked;
-  saveMeds();
-  updateProgress();
+  meds[i].taken = checkbox.checked; // Update status
+  saveMeds(); // Persist change
+  updateProgress(); // Update progress bar
 }
 
-/* ------------------------------------------------------------
-   Progress & Search
------------------------------------------------------------- */
+// ------------------ Progress & Search ------------------
 
-// Update the progress bar based on taken meds
+// Update progress bar width based on number of taken meds
 function updateProgress() {
-  const taken = meds.filter((m) => m.taken).length;
-  const total = meds.length;
-  const percent = total ? (taken / total) * 100 : 0;
+  const taken = meds.filter(m => m.taken).length;
+  const percent = meds.length ? (taken / meds.length) * 100 : 0;
   document.getElementById("progressBar").style.width = percent + "%";
 }
 
-// Filter visible medications by name
+// Filter meds displayed by search query
 function filterMeds() {
   const query = document.getElementById("searchMed").value.toLowerCase();
-  document.querySelectorAll(".med-item").forEach((item) => {
+  document.querySelectorAll(".med-item").forEach(item => {
     const name = item.querySelector(".med-name").textContent.toLowerCase();
-    item.style.display = name.includes(query) ? "flex" : "none";
+    item.style.display = name.includes(query) ? "flex" : "none"; // Show/hide item
   });
 }
 
-/* ------------------------------------------------------------
-   Notifications (Browser Desktop Notifications)
------------------------------------------------------------- */
+// ------------------ Notifications ------------------
 
-// Ask for browser notification permission once
+// Request permission for browser notifications
 function requestNotificationPermission() {
   if ("Notification" in window) {
-    Notification.requestPermission().then((perm) => {
-      if (perm === "granted") console.log("✅ Notifications enabled");
+    Notification.requestPermission().then(perm => {
+      if (perm === "granted") console.log("Notifications enabled");
     });
   }
 }
 
-// Send a desktop notification
+// Send browser notification with title, body, and icon
 function sendNotification(title, body) {
   if (Notification.permission === "granted") {
     new Notification(title, {
       body,
-      icon: "https://cdn-icons-png.flaticon.com/512/2942/2942910.png", // small pill icon
+      icon: "https://cdn-icons-png.flaticon.com/512/2942/2942910.png", // Pill icon
     });
   }
 }
 
-/* ------------------------------------------------------------
-   Dose Reminder Logic
------------------------------------------------------------- */
+// ------------------ Dose Reminder ------------------
 
-// Calculate and display the next upcoming dose
+// Find next dose and trigger notification if close
 function getNextDose() {
   const now = new Date();
-
-  if (meds.length === 0) {
+  if (!meds.length) {
     document.getElementById("nextDose").textContent = "No medications added.";
     return;
   }
 
-  // Find the next upcoming medication
+  // Map meds to next scheduled time, adjust to tomorrow if time has passed
   let upcoming = meds
-    .map((m) => {
-      const doseTime = new Date(`${now.toDateString()} ${m.time}`);
-      if (doseTime < now) doseTime.setDate(doseTime.getDate() + 1); // move to tomorrow if passed
-      return { ...m, diff: doseTime - now };
+    .map(m => {
+      const t = new Date(`${now.toDateString()} ${m.time}`);
+      if (t < now) t.setDate(t.getDate() + 1);
+      return { ...m, diff: t - now }; // diff in ms
     })
-    .sort((a, b) => a.diff - b.diff)[0];
+    .sort((a, b) => a.diff - b.diff)[0]; // Pick soonest
 
   const hrs = Math.floor(upcoming.diff / 3600000);
   const mins = Math.floor((upcoming.diff % 3600000) / 60000);
+  document.getElementById("nextDose").textContent = `Next: ${upcoming.name} in ${hrs}h ${mins}m`;
 
-  // Update text on screen
-  document.getElementById(
-    "nextDose"
-  ).textContent = `Next: ${upcoming.name} in ${hrs}h ${mins}m`;
-
-  // Trigger a desktop notification 5 minutes before
-  if (upcoming.diff < 5 * 60 * 1000 && upcoming.diff > 0) {
+  // Notify if within 5 minutes
+  if (upcoming.diff > 0 && upcoming.diff < 5 * 60 * 1000) {
     sendNotification("Medication Reminder", `It's almost time for ${upcoming.name}!`);
   }
 }
 
-/* ------------------------------------------------------------
-   Initialization
------------------------------------------------------------- */
+// ------------------ Initialization ------------------
 
-// Request notification permission when page loads
+// Ask for notifications on page load
 requestNotificationPermission();
 
-// Render stored medications on startup
+// Display saved meds immediately
 renderMeds();
 
-// Check for next dose every minute
+// Check every minute for next dose
 setInterval(getNextDose, 60000);
