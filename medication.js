@@ -1,8 +1,8 @@
+// ------------------ Load Medications ------------------
 // Load meds from localStorage; if none exist, start with empty array
 let meds = JSON.parse(localStorage.getItem("meds")) || [];
 
 // ------------------ Utility Functions ------------------
-
 // Save meds array to localStorage for persistence
 function saveMeds() {
   localStorage.setItem("meds", JSON.stringify(meds));
@@ -23,27 +23,22 @@ function renderMeds() {
         <div class="med-time">Time: ${m.time}</div>
         <div class="med-note">${m.note || ""}</div>
       </div>
-      <div class="med-actions">
-        <input type="checkbox" onchange="markTaken(${i}, this)" ${m.taken ? "checked" : ""}>
-        <button onclick="deleteMed(${i})">✖</button>
-      </div>`;
-    list.appendChild(div); // Add to DOM
+      <button class="remove-btn" onclick="deleteMed(${i})">✖</button>`;
+    list.appendChild(div);
   });
 
-  updateProgress(); // Update progress bar
   getNextDose(); // Update next dose info & notifications
 }
 
 // ------------------ CRUD Functions ------------------
-
 // Add new med from input fields
 function addMedication() {
   const name = document.getElementById("medName").value.trim();
   const time = document.getElementById("medTime").value;
   const note = document.getElementById("medNote").value.trim();
-  if (!name || !time) return alert("Please enter both name and time."); // Validate inputs
+  if (!name || !time) return alert("Please enter both name and time.");
 
-  meds.push({ name, time, note, taken: false }); // Add new med object
+  meds.push({ name, time, note, notified: false }); // Add new med object
   saveMeds(); // Save updated meds
   renderMeds(); // Refresh UI
 
@@ -55,43 +50,19 @@ function addMedication() {
 
 // Delete medication at index i
 function deleteMed(i) {
-  meds.splice(i, 1); // Remove med from array
-  saveMeds(); // Update storage
-  renderMeds(); // Refresh UI
-}
-
-// Mark medication as taken or not taken
-function markTaken(i, checkbox) {
-  meds[i].taken = checkbox.checked; // Update status
-  saveMeds(); // Persist change
-  updateProgress(); // Update progress bar
-}
-
-// ------------------ Progress & Search ------------------
-
-// Update progress bar width based on number of taken meds
-function updateProgress() {
-  const taken = meds.filter(m => m.taken).length;
-  const percent = meds.length ? (taken / meds.length) * 100 : 0;
-  document.getElementById("progressBar").style.width = percent + "%";
-}
-
-// Filter meds displayed by search query
-function filterMeds() {
-  const query = document.getElementById("searchMed").value.toLowerCase();
-  document.querySelectorAll(".med-item").forEach(item => {
-    const name = item.querySelector(".med-name").textContent.toLowerCase();
-    item.style.display = name.includes(query) ? "flex" : "none"; // Show/hide item
-  });
+  if (confirm(`Delete medication "${meds[i].name}"?`)) {
+    meds.splice(i, 1); // Remove med from array
+    saveMeds(); // Update storage
+    renderMeds(); // Refresh UI
+  }
 }
 
 // ------------------ Notifications ------------------
-
 // Request permission for browser notifications
 function requestNotificationPermission() {
   if ("Notification" in window) {
     Notification.requestPermission().then(perm => {
-      if (perm === "granted") console.log("Notifications enabled");
+      if (perm === "granted") console.log("✅ Notifications enabled");
     });
   }
 }
@@ -107,8 +78,7 @@ function sendNotification(title, body) {
 }
 
 // ------------------ Dose Reminder ------------------
-
-// Find next dose and trigger notification if close
+// Find next dose and trigger notification exactly on time
 function getNextDose() {
   const now = new Date();
   if (!meds.length) {
@@ -120,7 +90,7 @@ function getNextDose() {
   let upcoming = meds
     .map(m => {
       const t = new Date(`${now.toDateString()} ${m.time}`);
-      if (t < now) t.setDate(t.getDate() + 1);
+      if (t < now) t.setDate(t.getDate() + 1); // move to tomorrow if passed
       return { ...m, diff: t - now }; // diff in ms
     })
     .sort((a, b) => a.diff - b.diff)[0]; // Pick soonest
@@ -129,19 +99,20 @@ function getNextDose() {
   const mins = Math.floor((upcoming.diff % 3600000) / 60000);
   document.getElementById("nextDose").textContent = `Next: ${upcoming.name} in ${hrs}h ${mins}m`;
 
-  // Notify if within 5 minutes
-  if (upcoming.diff > 0 && upcoming.diff < 5 * 60 * 1000) {
-    sendNotification("Medication Reminder", `It's almost time for ${upcoming.name}!`);
+  // Trigger notification exactly at 0 ms difference (within 1 second)
+  if (Math.abs(upcoming.diff) < 1000 && !upcoming.notified) {
+    sendNotification("Medication Reminder", `Time for ${upcoming.name}!`);
+    upcoming.notified = true;
+
+    // Update the meds array to mark this as notified
+    meds = meds.map(m => 
+      m.name === upcoming.name && m.time === upcoming.time ? upcoming : m
+    );
+    saveMeds();
   }
 }
 
 // ------------------ Initialization ------------------
-
-// Ask for notifications on page load
-requestNotificationPermission();
-
-// Display saved meds immediately
-renderMeds();
-
-// Check every minute for next dose
-setInterval(getNextDose, 60000);
+requestNotificationPermission(); // Ask for notifications on page load
+renderMeds(); // Display saved meds immediately
+setInterval(getNextDose, 1000); // Check every second for exact-time notifications

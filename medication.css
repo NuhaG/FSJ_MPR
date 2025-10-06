@@ -1,196 +1,148 @@
+/* ------------------ Base Styles ------------------ */
 body {
   font-family: "Poppins", sans-serif;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background: var(--background-color, #f5f7fa);
+  color: var(--text-color, #333);
   margin: 0;
   padding: 0;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 header {
-  background-color: var(--primary-color);
-  color: var(--surface-color);
+  background: var(--primary-color, #0d6b70);
+  color: #fff;
   text-align: center;
-  padding: 1rem 0;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  padding: 1.2rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 header h1 {
-  font-size: 2rem;
   margin: 0;
-  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: 1px;
 }
 
+/* ------------------ Container ------------------ */
 .container {
-  max-width: 900px;
-  margin: 40px auto;
-  background-color: var(--surface-color);
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  max-width: 600px;
+  margin: 30px auto;
+  background: var(--surface-color, #fff);
+  padding: 25px 20px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-/* --- Input Fields --- */
+/* ------------------ Inputs & Textarea ------------------ */
 .input-group {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 12px;
   margin-bottom: 20px;
 }
 
 input, textarea {
-  flex: 1;
   padding: 12px;
-  border: 2px solid var(--secondary-color);
-  border-radius: 8px;
-  background-color: var(--surface-color);
-  color: var(--text-color);
+  border: 1px solid var(--secondary-color, #c8c8c8);
+  border-radius: 10px;
+  background: var(--surface-color, #fff);
+  color: var(--text-color, #333);
   font-size: 1rem;
-  transition: border-color 0.2s ease, background-color 0.3s ease;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
 }
 
 input:focus, textarea:focus {
-  border-color: var(--accent-color);
   outline: none;
+  border-color: var(--accent-color, #53e1c5);
+  box-shadow: 0 0 8px rgba(83, 225, 197, 0.3);
 }
 
-#searchMed {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 20px;
-  border: 2px solid var(--secondary-color);
-  border-radius: 8px;
-  background-color: var(--surface-color);
-  color: var(--text-color);
-  font-size: 1rem;
-}
-
-/* --- Buttons --- */
+/* ------------------ Buttons ------------------ */
 button {
-  background-color: var(--accent-color);
-  color: var(--primary-color);
+  padding: 12px 20px;
   border: none;
-  border-radius: 8px;
-  padding: 12px 18px;
+  border-radius: 10px;
+  background: var(--accent-color, #53e1c5);
+  color: var(--primary-color, #0d6b70);
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.25s ease, transform 0.2s ease;
+  transition: transform 0.2s ease, background 0.3s ease, color 0.3s ease;
 }
 
 button:hover {
-  background-color: var(--secondary-color);
-  color: var(--surface-color);
   transform: scale(1.05);
+  background: var(--secondary-color, #dc8d77);
+  color: var(--surface-color, #fff);
 }
 
-/* --- Medication Cards --- */
+/* ------------------ Medication Item ------------------ */
 .med-item {
+  background: var(--surface-color, #fff);
+  border: 1px solid var(--secondary-color, #c8c8c8);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  padding: 14px 16px;
-  background-color: var(--surface-color);
-  border: 1px solid var(--secondary-color);
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  margin-bottom: 12px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .med-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
 .med-info {
   flex: 1;
-  min-width: 240px;
+  margin-right: 10px;
 }
 
 .med-name {
-  color: var(--primary-color);
-  font-weight: 600;
-  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary-color, #0d6b70);
+  font-size: 1.1rem;
 }
 
-.med-time {
-  color: var(--text-secondary-color);
+.med-time, .med-note {
   font-size: 0.9rem;
-}
-
-.med-note {
-  color: var(--text-secondary-color);
+  color: var(--text-secondary-color, #666);
   font-style: italic;
-  font-size: 0.9rem;
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
-/* --- Delete Button --- */
-.med-item button {
+/* ------------------ Remove Button ------------------ */
+.med-actions button {
   background: transparent;
+  color: var(--secondary-color, #dc8d77);
   border: none;
-  font-size: 1.4rem;
-  color: var(--secondary-color);
+  font-size: 1.3rem;
   cursor: pointer;
-  padding: 6px;
-  transition: color 0.25s ease, transform 0.2s ease;
+  transition: color 0.2s ease;
 }
 
-.med-item button:hover {
-  color: var(--hover-color);
-  transform: scale(1.2);
+.med-actions button:hover {
+  color: var(--hover-color, #ff4b5c);
 }
 
-/* --- Progress Bar --- */
-.progress {
-  height: 10px;
-  background: rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  overflow: hidden;
-  margin: 20px 0;
-}
-
-#progressBar {
-  height: 100%;
-  width: 0%;
-  background-color: var(--accent-color);
-  transition: width 0.3s ease;
-}
-
-/* --- Next Dose Card --- */
+/* ------------------ Next Dose ------------------ */
 .next-dose {
-  background-color: var(--accent-color);
-  color: var(--primary-color);
   text-align: center;
+  background: var(--accent-color, #53e1c5);
+  color: var(--primary-color, #0d6b70);
   padding: 12px;
   border-radius: 10px;
   font-weight: 600;
-  margin-bottom: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  font-size: 1rem;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* --- Dark Mode --- */
-.dark-theme .container {
-  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.06);
-}
-
-.dark-theme input,
-.dark-theme textarea,
-.dark-theme #searchMed {
-  background-color: var(--surface-color);
-  border: 2px solid var(--secondary-color);
-  color: var(--text-color);
-}
-
-.dark-theme .med-item {
-  background-color: var(--surface-color);
-  border-color: var(--secondary-color);
-  box-shadow: 0 4px 14px rgba(255,255,255,0.05);
-}
-
-.dark-theme .next-dose {
-  background-color: var(--accent-color);
-  color: var(--primary-color);
+/* Optional: Smooth scrolling for small devices */
+@media (max-width: 480px) {
+  .container {
+    margin: 20px 15px;
+    padding: 20px;
+  }
 }
