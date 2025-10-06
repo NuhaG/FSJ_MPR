@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medication Tracker</title>
+
+    <!-- Main styles -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="medication.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Medication Tracker</h1>
+    </header>
+
+    <main class="container">
+      <!-- Search bar -->
+      <input
+        type="text"
+        id="searchMed"
+        placeholder="Search medication..."
+        onkeyup="filterMeds()"
+      />
+
+      <!-- Add new medication -->
+      <div class="input-group">
+        <input type="text" id="medName" placeholder="Medicine name" />
+        <input type="time" id="medTime" />
+        <textarea
+          id="medNote"
+          placeholder="Add note (e.g. after meals)"
+        ></textarea>
+        <button onclick="addMedication()">Add Medication</button>
+      </div>
+
+      <!-- Next dose reminder -->
+      <div class="next-dose" id="nextDose">Next dose: --</div>
+
+      <!-- Progress bar -->
+      <div class="progress">
+        <div id="progressBar"></div>
+      </div>
+
+      <!-- Medication list -->
+      <div id="medList"></div>
+    </main>
+
+    <!-- JavaScript files -->
+    <script src="medication.js"></script>
+    <script src="theme.js"></script>
+  </body>
+</html>
