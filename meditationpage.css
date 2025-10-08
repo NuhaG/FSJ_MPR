@@ -4,13 +4,14 @@
 }
 
 header {
-  background-image: url("public/medbgimg.jpg");
+  background-color: var(--surface-color);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
 .heading {
   color: var(--primary-color);
+  padding-top: 10px;
   text-align: center;
   font-weight: 700;
   font-size: clamp(
@@ -34,7 +35,7 @@ header {
   flex-wrap: wrap;
   gap: 40px;
   align-items: center;
-  padding-bottom: 110px;
+  /* padding-bottom: 110px; */
 }
 .card {
   background-color: var(--primary-color);
@@ -108,4 +109,32 @@ i {
 i:hover {
   transform: scale(1.06);
   color: var(--hover-color);
+}
+
+.end-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px;
+}
+
+.btn {
+  padding: 14px 20px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 8px;
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.25s ease;
+}
+
+.btn:hover {
+  background-color: var(--secondary-color);
+  transform: scale(1.03);
+}
+
+.btn a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 400;
 }

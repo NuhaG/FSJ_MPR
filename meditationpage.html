@@ -1,164 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Meditation Page</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="meditationpage.css" class="stylesheet" />
-  </head>
-  <body>
-    <header>
-      <div class="heading">
-        <h1><p>Guided Meditation Page</p></h1>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meditation Page</title>
 
-      <div class="captiontext">
-        <h2>
-          <p>
-            Meditation has many benefits. It reduces stress, increases calm and
-            focus, and promotes greater physical and emotional well-being.
-            Anyone can do it, and the rewards can come quickly. These guided
-            meditations will help you get started.
-          </p>
-        </h2>
-      </div>
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+  />
 
-      <section class="container">
-        <div class="card">
-          <div class="cardimage card1"></div>
-          <h2>Meditation 1</h2>
-          <p>Difficulty : Easy</p>
-          <p>Duration: 10 minutes</p>
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="meditationpage.css" />
+</head>
 
-          <span class="songlistplay" data-src="meditation1.mp3"
-            ><i class="fa-solid fa-circle-play"></i>
-          </span>
-        </div>
-        <div class="card">
-          <div class="cardimage card2"></div>
-          <h2>Meditation 2</h2>
-          <p>Difficulty : Easy</p>
-          <p>Duration: 10 minutes</p>
+<body>
+  <header>
+    <div class="heading">
+      <h1>
+        <p>Guided Meditation Page</p>
+      </h1>
+    </div>
 
-          <span class="songlistplay" data-src="meditation2.mp3"
-            ><i class="fa-solid fa-circle-play"></i>
-          </span>
-        </div>
-        <div class="card">
-          <div class="cardimage card3"></div>
-          <h2>Meditation 3</h2>
-          <p>Difficulty : Easy</p>
-          <p>Duration: 10 minutes</p>
-          <span class="songlistplay" data-src="meditation3.mp3"
-            ><i class="fa-solid fa-circle-play"></i>
-          </span>
-        </div>
-        <div class="card">
-          <div class="cardimage card4"></div>
-          <h2>Meditation 4</h2>
-          <p>Difficulty : Easy</p>
-          <p>Duration: 10 minutes</p>
-          <span class="songlistplay" data-src="meditation4.mp3"
-            ><i class="fa-solid fa-circle-play"></i>
-          </span>
-        </div>
-        <div class="card">
-          <div class="cardimage card5"></div>
-          <h2>Meditation 5</h2>
-          <p>Difficulty : Easy</p>
-          <p>Duration: 10 minutes</p>
-          <span class="songlistplay" data-src="meditation5.mp3"
-            ><i class="fa-solid fa-circle-play"></i>
-          </span>
-        </div>
-        <div class="card">
-          <div class="cardimage card6"></div>
-          <h2>Meditation 6</h2>
-          <p>Difficulty : Easy</p>
-          <p>Duration: 10 minutes</p>
-          <span class="songlistplay" data-src="meditation6.mp3"
-            ><i class="fa-solid fa-circle-play"></i>
-          </span>
-        </div>
-      </section>
-      <div class="bottom">
-        <input type="range" name="range" id="myprogressbar" min="0" max="100" />
-        <div class="icons">
-          <i class="fa-solid fa-backward-step"></i>
+    <div class="captiontext">
+      <h2>
+        <p>
+          Meditation has many benefits. It reduces stress, increases calm and focus, and promotes greater physical and
+          emotional well-being. Anyone can do it, and the rewards can come quickly. These guided meditations will help
+          you get started.
+        </p>
+      </h2>
+    </div>
+
+    <section class="container">
+      <!-- Meditation Cards -->
+      <div class="card">
+        <div class="cardimage card1"></div>
+        <h2>Meditation 1</h2>
+        <p>Difficulty: Easy</p>
+        <p>Duration: 10 minutes</p>
+        <span class="songlistplay" data-src="meditation1.mp3">
           <i class="fa-solid fa-circle-play"></i>
-          <i class="fa-solid fa-forward-step"></i>
-        </div>
+        </span>
       </div>
-    </header>
 
-    <i id="playPauseBtn" class="fa-solid fa-circle-play"></i>
-    <audio id="globalAudio"></audio>
-    <script>
-      const audio = document.getElementById("globalAudio");
-      const buttons = document.querySelectorAll(".songlistplay");
-      let currentButton = null;
+      <div class="card">
+        <div class="cardimage card2"></div>
+        <h2>Meditation 2</h2>
+        <p>Difficulty: Easy</p>
+        <p>Duration: 10 minutes</p>
+        <span class="songlistplay" data-src="meditation2.mp3">
+          <i class="fa-solid fa-circle-play"></i>
+        </span>
+      </div>
 
-      buttons.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const icon = btn.querySelector("i");
-          const src = btn.dataset.src;
+      <div class="card">
+        <div class="cardimage card3"></div>
+        <h2>Meditation 3</h2>
+        <p>Difficulty: Easy</p>
+        <p>Duration: 10 minutes</p>
+        <span class="songlistplay" data-src="meditation3.mp3">
+          <i class="fa-solid fa-circle-play"></i>
+        </span>
+      </div>
 
-          if (currentButton !== btn) {
-            if (currentButton) {
-              currentButton
-                .querySelector("i")
-                .classList.remove("fa-circle-pause");
-              currentButton.querySelector("i").classList.add("fa-circle-play");
-            }
+      <div class="card">
+        <div class="cardimage card4"></div>
+        <h2>Meditation 4</h2>
+        <p>Difficulty: Easy</p>
+        <p>Duration: 10 minutes</p>
+        <span class="songlistplay" data-src="meditation4.mp3">
+          <i class="fa-solid fa-circle-play"></i>
+        </span>
+      </div>
 
-            audio.src = src;
-            audio.play();
+      <div class="card">
+        <div class="cardimage card5"></div>
+        <h2>Meditation 5</h2>
+        <p>Difficulty: Easy</p>
+        <p>Duration: 10 minutes</p>
+        <span class="songlistplay" data-src="meditation5.mp3">
+          <i class="fa-solid fa-circle-play"></i>
+        </span>
+      </div>
 
-            icon.classList.remove("fa-circle-play");
-            icon.classList.add("fa-circle-pause");
-            currentButton = btn;
-            return;
+      <div class="card">
+        <div class="cardimage card6"></div>
+        <h2>Meditation 6</h2>
+        <p>Difficulty: Easy</p>
+        <p>Duration: 10 minutes</p>
+        <span class="songlistplay" data-src="meditation6.mp3">
+          <i class="fa-solid fa-circle-play"></i>
+        </span>
+      </div>
+    </section>
+  </header>
+
+  <!-- Back Button -->
+  <div class="end-btn">
+    <button class="btn">
+      <a href="dashboard.html">Back</a>
+    </button>
+  </div>
+
+  <!-- Audio Player -->
+  <audio id="globalAudio"></audio>
+
+  <script>
+    const audio = document.getElementById("globalAudio");
+    const buttons = document.querySelectorAll(".songlistplay");
+    let currentButton = null;
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const icon = btn.querySelector("i");
+        const src = btn.dataset.src;
+
+        if (currentButton !== btn) {
+          // Reset previous button icon
+          if (currentButton) {
+            currentButton.querySelector("i").classList.remove("fa-circle-pause");
+            currentButton.querySelector("i").classList.add("fa-circle-play");
           }
 
-          if (audio.paused) {
-            audio.play();
-            icon.classList.remove("fa-circle-play");
-            icon.classList.add("fa-circle-pause");
-          } else {
-            audio.pause();
-            icon.classList.remove("fa-circle-pause");
-            icon.classList.add("fa-circle-play");
-          }
-        });
-      });
+          // Play new audio
+          audio.src = src;
+          audio.play();
 
-      audio.addEventListener("ended", () => {
-        if (currentButton) {
-          currentButton.querySelector("i").classList.remove("fa-circle-pause");
-          currentButton.querySelector("i").classList.add("fa-circle-play");
-          currentButton = null;
+          icon.classList.remove("fa-circle-play");
+          icon.classList.add("fa-circle-pause");
+          currentButton = btn;
+          return;
+        }
+
+        // Toggle play/pause for same button
+        if (audio.paused) {
+          audio.play();
+          icon.classList.remove("fa-circle-play");
+          icon.classList.add("fa-circle-pause");
+        } else {
+          audio.pause();
+          icon.classList.remove("fa-circle-pause");
+          icon.classList.add("fa-circle-play");
         }
       });
-    </script>
-  
-  <script>
-    const btn = document.getElementById("playPauseBtn");
+    });
 
-    btn.addEventListener("click", () => {
-      if (btn.classList.contains("fa-solid fa-circle-play")) {
-        btn.classList.remove("fa-solid fa-circle-play");
-        btn.classList.add("fa-solid fa-circle-play");
-      } else {
-        btn.classList.remove("fa-solid fa-circle-play");
-        btn.classList.add("fa-solid fa-circle-play");
+    // Reset icon when audio ends
+    audio.addEventListener("ended", () => {
+      if (currentButton) {
+        currentButton.querySelector("i").classList.remove("fa-circle-pause");
+        currentButton.querySelector("i").classList.add("fa-circle-play");
+        currentButton = null;
       }
     });
+
+    // (Optional) Example button toggle
+    const btn = document.getElementById("playPauseBtn");
+    if (btn) {
+      btn.addEventListener("click", () => {
+        if (btn.classList.contains("fa-circle-play")) {
+          btn.classList.remove("fa-circle-play");
+          btn.classList.add("fa-circle-pause");
+        } else {
+          btn.classList.remove("fa-circle-pause");
+          btn.classList.add("fa-circle-play");
+        }
+      });
+    }
   </script>
+
   <script src="theme.js"></script>
-  </body>
+</body>
 </html>
